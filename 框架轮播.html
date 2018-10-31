@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../bootstrip/js/jquery-3.3.1.js"></script>
+    <link rel="stylesheet" href="../swiper/css/swiper.css">
+    <script src="../swiper/js/swiper.js"></script>
+    <style type="text/css">
+    </style>
+    <script type="text/javascript">
+        /*
+        * 第一步导入插件
+        * 第二步定义html元素
+        * 第三步实例化swiper对象
+        * */
+        $(function () {
+            let sp=new Swiper('.swiper-container',{
+                centeredSlides : true,
+                slidesPerView : 1,
+                //表示轮播的方向是水平的
+                direction:'horizontal',
+                //无限轮播 默认是false
+                loop:true,
+                //定义小圆点分页器
+                pagination:{
+                    //添加小圆点
+                    el:'.swiper-pagination',
+                    //点击切换
+                    clickable:true
+                },
+                //定义导航条
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                //自动播放
+                autoplay: {
+                    stopOnLastSlide: false,
+                    disableOnInteraction: true,
+                    //延迟多少秒
+                    delay: 3000,
+                },
+
+            })
+        })
+    </script>
+</head>
+<body>
+<div class="swiper-container" style="width: 640px">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="img/img1.jpg"></div>
+        <div class="swiper-slide"><img src="img/img2.jpg"></div>
+        <div class="swiper-slide"><img src="img/img3.jpg"></div>
+        <div class="swiper-slide"><img src="img/img4.jpg"></div>
+        <div class="swiper-slide"><img src="img/img5.jpg"></div>
+    </div>
+    <!--添加小圆点-->
+    <div class="swiper-pagination"></div>
+    <!--导航箭头-->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+</div>
+
+</body>
+</html>

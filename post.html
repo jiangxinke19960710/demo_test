@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../bootstrip/js/jquery-3.3.1.js"></script>
+    <style type="text/css"></style>
+    <script type="text/javascript">
+        $(function () {
+            //post
+            //x-www-form-urlencode
+
+            //提交数据一般是用户输入内容提交到服务器
+            //登录
+            //注册
+            //let REGISTER_URL = 'https://www.apiopen.top/createUser'
+            //?key=00d91e8e0cca2b76f515926a36db68f5&phone=13594347817&passwd=123654
+
+
+            $('#register').click(function () {
+                let phone=$('#phone').val();
+                let passwd=$('#passwd').val();
+                let confirm_passwd=$('#confirm_passwd').val();
+                if(passwd===confirm_passwd){
+                    let data={
+                        phone:phone,
+                        passwd:passwd,
+                        key:'00d91e8e0cca2b76f515926a36db68f5'
+                    };
+                    let REGISTER_URL='https://www.apiopen.top/createUser'
+                    let params={
+                        type:'post',
+                        data:data,
+                        success:function (result) {
+                            alert(result)
+                        }
+                    };
+
+                    $.ajax(REGISTER_URL,params)
+                }else {
+                    $('#msg').text('密码不一样').css('display','block')
+                }
+
+
+
+            })
+        })
+    </script>
+</head>
+<body>
+<p id="msg" style="display: none"></p>
+<form action="" method="get">
+    手机号：<input type="text" id="phone" name="phone" placeholder="请输入手机号">
+    密码：<input type="password" id="passwd" name="passwd" placeholder="请输入密码">
+    确认密码：<input type="password" id="confirm_passwd" name="passwd" placeholder="请输入密码"><br>
+    <input type="button" id="register" value="注册">
+</form>
+
+</body>
+</html>
